@@ -37,6 +37,30 @@
         <pluginManagement>
             <plugins>
                 <plugin>
+<<<<<<< HEAD
+=======
+                   <artifactId>maven-checkstyle-plugin</artifactId>
+                   <version>3.0.0</version>
+                   <configuration>
+                     <configLocation>${basedir}/checkstyle.xml</configLocation>
+                     <includeTestSourceDirectory>true</includeTestSourceDirectory>
+                     <sourceDirectories>
+                       <sourceDirectory>${project.build.sourceDirectory}</sourceDirectory>
+                     </sourceDirectories>
+                     <testSourceDirectories>
+                       <sourceDirectory>${project.build.testSourceDirectory}</sourceDirectory>
+                     </testSourceDirectories>
+                   </configuration>
+                   <executions>
+                     <execution>
+                       <goals>
+                         <goal>check</goal>
+                       </goals>
+                     </execution>
+                   </executions>
+                </plugin>
+                <plugin>
+>>>>>>> fix-style
                     <artifactId>maven-javadoc-plugin</artifactId>
                     <configuration>
                         <skip>true</skip>
@@ -52,6 +76,7 @@
             <artifactId>mailer</artifactId>
             <version>1.7</version>
             <!-- TODO: should be transformed into a optional dependency -->
+<<<<<<< HEAD
         </dependency>
         <dependency>
             <groupId>org.jenkins-ci.plugins</groupId>
@@ -69,6 +94,19 @@
             <artifactId>maven-plugin</artifactId>
             <!-- needs hudson.model.User with getById() -->
             <version>2.3</version>
+=======
+        </dependency>
+        <dependency>
+            <groupId>org.jenkins-ci.plugins</groupId>
+            <artifactId>matrix-project</artifactId>
+            <version>1.4</version>
+            <!-- TODO: should be transformed into a optional dependency -->
+        </dependency>
+        <dependency>
+            <groupId>org.jenkins-ci.plugins</groupId>
+            <artifactId>junit</artifactId>
+            <version>1.7</version>
+>>>>>>> fix-style
         </dependency>
         <dependency>
             <groupId>org.jenkins-ci.main</groupId>
@@ -115,4 +153,7 @@
         </pluginRepository>
     </pluginRepositories>
 </project>
+<<<<<<< HEAD
 
+=======
+>>>>>>> fix-style

@@ -37,7 +37,7 @@ import org.apache.commons.lang.ArrayUtils;
  * @author kutzi
  */
 @Extension
-    public class BuildCommand extends AbstractTextSendingCommand {
+public class BuildCommand extends AbstractTextSendingCommand {
 
     private static final Pattern NUMERIC_EXTRACTION_REGEX = Pattern.compile("^(\\d+)");
     private static final String SYNTAX = " <job> [now|<delay>[s|m|h]] [<parameterkey>=<value>]*";
@@ -200,6 +200,9 @@ import org.apache.commons.lang.ArrayUtils;
     private String checkPermission(Sender sender, AbstractProject<?, ?> project) {
         if (project == null) {
             return "ERROR in checkPermission() : project not specified";
+
+        if (!project.hasPermission(Item.BUILD)) {
+            return sender.getNickname() + ": you're not allowed to build job " + project.getDisplayName() + "!";
         }
 
         // This checks the permissions of "current user" in a context of
