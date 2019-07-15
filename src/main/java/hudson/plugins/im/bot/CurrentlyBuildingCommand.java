@@ -228,20 +228,8 @@ public class CurrentlyBuildingCommand extends BotCommand {
                 " items):");
         }
 
-                    msg.append("\n- ");
-                    msg.append(computer.getDisplayName());
-                    msg.append("#");
-                    msg.append(executor.getNumber());
-                    msg.append(": ");
-                    msg.append(item != null ? item.getFullDisplayName() : task.getDisplayName());
-                    msg.append(" (Elapsed time: ");
-                    msg.append(Util.getTimeSpanString(executor.getElapsedTime()));
-                    msg.append(", Estimated remaining time: ");
-                    msg.append(executor.getEstimatedRemainingTime());
-                    msg.append(")");
-                }
-            }
-        }
+        chat.sendMessage(msg.toString());
+    }
 
     private String giveSyntax(String sender, String cmd) {
         return sender + ": syntax is: '" + cmd +  SYNTAX + "'";

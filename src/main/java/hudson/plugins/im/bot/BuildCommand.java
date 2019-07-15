@@ -200,9 +200,6 @@ public class BuildCommand extends AbstractTextSendingCommand {
     private String checkPermission(Sender sender, AbstractProject<?, ?> project) {
         if (project == null) {
             return "ERROR in checkPermission() : project not specified";
-
-        if (!project.hasPermission(Item.BUILD)) {
-            return sender.getNickname() + ": you're not allowed to build job " + project.getDisplayName() + "!";
         }
 
         // This checks the permissions of "current user" in a context of
