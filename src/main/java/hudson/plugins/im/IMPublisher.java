@@ -346,8 +346,8 @@ public abstract class IMPublisher extends Notifier implements BuildStep, MatrixA
     private void internalPerform(@Nonnull Run<?, ?> run, @Nonnull Launcher launcher, @Nonnull TaskListener taskListener) throws InterruptedException, IOException {
         if (customMessage == null || customMessage.isEmpty()) {
             // Do the normal notification routine
-            Assert.notNull(run, "Parameter 'build' must not be null.");
-            Assert.notNull(taskListener, "Parameter 'buildListener' must not be null.");
+            Assert.notNull(run, "Parameter 'run' must not be null.");
+            Assert.notNull(taskListener, "Parameter 'taskListener' must not be null.");
 
             if (run.getParent() instanceof MatrixConfiguration) {
                 if (getMatrixNotifier() == MatrixJobMultiplier.ONLY_CONFIGURATIONS
