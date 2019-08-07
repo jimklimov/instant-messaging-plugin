@@ -694,7 +694,11 @@ log (taskListener, "is TL~BL? " + (taskListener instanceof BuildListener) );
      * @throws IOException
      */
     /* package for testing */ void notifyChatsOnBuildStart(AbstractBuild<?, ?> build, BuildListener buildListener) throws IOException, InterruptedException {
-        final String msg = buildToChatNotifier.buildStartMessage(this,build,buildListener);
+        this.notifyChatsOnBuildStart( (Run<?, ?>)build, (TaskListener) buildListener );
+    }
+
+    /* package for testing */ void notifyChatsOnBuildStart(@Nonnull Run<?, ?> build, @Nonnull TaskListener buildListener) throws IOException, InterruptedException {
+        final String msg = getBuildToChatNotifier().buildStartMessage(this, build, buildListener);
         if (Util.fixEmpty(msg) == null) {
             return;
         }
