@@ -355,6 +355,12 @@ public abstract class IMPublisher extends Notifier implements BuildStep, MatrixA
                     notifyOnBuildEnd(run, taskListener);
                 }
             } else {
+
+log (taskListener, "is r~AB? " + (run instanceof AbstractBuild) );
+log (taskListener, "is rp~WFJ? " + (run.getParent() instanceof WorkflowJob) );
+log (taskListener, "is notifyStart? " + getNotifyOnStart() );
+log (taskListener, "is TL~BL? " + (taskListener instanceof BuildListener) );
+
                 if (run instanceof AbstractBuild
                         && run.getParent() instanceof WorkflowJob
                         && getNotifyOnStart()
