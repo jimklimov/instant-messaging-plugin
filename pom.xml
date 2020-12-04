@@ -28,7 +28,7 @@
         <version.instant-messaging-parent.plugin>1.29</version.instant-messaging-parent.plugin>
         <version.findbugs-maven-plugin>3.0.4</version.findbugs-maven-plugin>
         <java.level>8</java.level>
-        <jenkins.version>2.204.6</jenkins.version>
+        <jenkins.version>2.269</jenkins.version>
     </properties>
 
     <dependencyManagement>
