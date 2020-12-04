@@ -26,6 +26,7 @@
         <changelist>-SNAPSHOT</changelist>
         <gitHubRepo>jenkinsci/instant-messaging-plugin</gitHubRepo>
         <version.instant-messaging-parent.plugin>1.29</version.instant-messaging-parent.plugin>
+        <version.findbugs-maven-plugin>3.0.4</version.findbugs-maven-plugin>
         <java.level>8</java.level>
         <jenkins.version>2.204.6</jenkins.version>
     </properties>
@@ -116,13 +117,6 @@
             <scope>compile</scope>
         </dependency>
 
-        <dependency>
-            <groupId>com.google.code.findbugs</groupId>
-            <artifactId>annotations</artifactId>
-            <version>3.0.0</version>
-            <scope>provided</scope>
-        </dependency>
-
     </dependencies>
 
     <repositories>
@@ -203,6 +197,26 @@
                         <skip>true</skip>
                     </configuration>
                 </plugin>
+
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>findbugs-maven-plugin</artifactId>
+                    <version>${version.findbugs-maven-plugin}</version>
+                    <configuration>
+                        <effort>Max</effort>
+                        <threshold>Low</threshold>
+                        <xmlOutput>true</xmlOutput>
+                        <failOnError>false</failOnError>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>check</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+
             </plugins>
         </pluginManagement>
     </build>
