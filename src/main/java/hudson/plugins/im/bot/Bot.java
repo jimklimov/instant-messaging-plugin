@@ -77,6 +77,7 @@ public class Bot implements IMMessageListener {
 
     private final AuthenticationHolder authentication;
 
+    @SuppressWarnings({"MC_OVERRIDABLE_METHOD_CALL_IN_CONSTRUCTOR"})
     public Bot(IMChat chat, String nick, String imServer,
             String commandPrefix, AuthenticationHolder authentication
             ) {
@@ -92,6 +93,10 @@ public class Bot implements IMMessageListener {
                 this.cmdsAndAliases.put(name,cmd);
         }
 
+        // MC_OVERRIDABLE_METHOD_CALL_IN_CONSTRUCTOR
+        // https://spotbugs.readthedocs.io/en/stable/bugDescriptions.html
+        // Overridable method addMessageListener is called from constructor
+        // It may also leak the "this" reference of the partially constructed object.
         chat.addMessageListener(this);
     }
 
